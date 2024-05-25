@@ -1,0 +1,52 @@
+---
+title: "Programming in Base R"
+format: html
+editor: visual
+---
+
+# Task 1: Basic Vector practice
+
+## 1. Create two vectors for the pre-treatment and post treatement measurements.
+
+```{r}
+PreTreatment <-c(130, 128, 116, 124, 133, 134, 118, 126, 114, 127, 141, 138, 128, 140, 137, 131, 120, 128, 139, 135)
+
+AfterTreatment <-c(114, 98, 113, 99, 107, 116, 113, 111, 119, 117, 101, 119, 130, 122, 106, 106, 124, 102, 117, 113)
+
+PreTreatment
+AfterTreatment
+
+paste("Subject", 1:20, sep = "_")
+
+mydf <- data.frame(Subjects, PreTreatment, AfterTreatment)
+
+```
+
+## 2. Assign names to the vector elements.
+```{r}
+paste("Subject", 1:20, sep = "_")
+
+```
+
+## 3. Calculate change in blood pressure between treatements.
+```{r}
+TreatmentDiffs <- (AfterTreatment-PreTreatment) 
+
+TreatmentDiffs
+```
+## 4. Calculate the average decrease in blood pressure across all patients. 
+```{r}
+mean(TreatmentDiffs)
+```
+## 5. Determine which patients experienced a decrease in blood pressure.
+```{r}
+
+```
+
+
+# Task 2
+## Create a data frame object with four columns corresponding to the above data. 
+```{r}
+mydf <- data.frame(Subjects, PreTreatment, AfterTreatment, TreatmentDiffs)
+```
+
