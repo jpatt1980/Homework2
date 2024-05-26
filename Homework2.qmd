@@ -76,14 +76,14 @@ TreatmentsDF[which(TreatmentsDF$TreatmentDiffs < 0), ]
 ## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatment BP is less than 120.
 
 ```{r}
-TreatmentsDF |> 
-  mutate(BPUnder120 = TreatmentsDF$AfterTreatment < 120)
+TreatmentsDF <- TreatmentsDF |>
+  mutate(BPUnder120 = AfterTreatment < 120)
 ```
 
 ## 4. Print the data frame out nicely in the final documnet.
 
 ```{r}
-
+knitr::kable(TreatmentsDF)
 ```
 
 # Task 3
@@ -91,7 +91,39 @@ TreatmentsDF |>
 ## 1. Create a new data frame with the placebo experiment.
 
 ```{r}
-PlaceboBefore <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130)
-PlaceboAfter <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124)
-PlaceboDiffs
+PlaceboDF <- data.frame(Subject = 
+  PLSubject <- paste("Subject", 1:10, sep = "_"), 
+  PlaceboBefore = PlaceboBefore <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130), 
+  PlaceboAfter = PlaceboAfter <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
+  PlaceboDiffs = PlaceboDiffs <- (PlaceboAfter - PlaceboBefore) 
+)
+PlaceboDF <- PlaceboDF |> mutate(PLBPUnder120 = PlaceboAfter < 120)
+PlaceboDF
+
 ```
+
+## 2. Create and store a list with two elemenets. Treatement and Placebo
+```{r}
+BloodPressure <- list(TreatmentsDF, PlaceboDF)
+```
+
+## 3. Access the first list element using three different types of syntax
+```{r}
+BloodPressure[1]
+BloodPressure[1:1]
+BloodPressure[[1]]
+```
+
+## 4. In one line, access the placebo data frame, PlaceboBefore column
+```{r}
+BloodPressure[[2]][[2]]
+```
+
+
+
+
+
+
+
+
+
