@@ -49,7 +49,7 @@ Subject[which(AfterTreatment < PreTreatment)]
 ## 6. Subset the vector of differences to only return those that have a positive change
 
 ```{r}
-TreatmentDiffs[which(AfterTreatment < PreTreatment)]
+TreatmentDiffs [which(AfterTreatment < PreTreatment)]
 ```
 
 ## 7. Calculate the average decrease in blood pressure.
@@ -85,3 +85,13 @@ TreatmentsDF |>
 ```{r}
 
 ```
+
+# Task 3
+## 1. Create a new data frame with the placebo experiment. 
+```{r}
+PlaceboBefore <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130)
+PlaceboAfter <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124)
+PlaceboDiffs
+```
+
+
