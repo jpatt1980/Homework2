@@ -134,15 +134,15 @@ BloodPressure[[2]]$Status <- character(10)
 ## 2. Create a loop using if/than/else logic to create the status column's values.
 
 ```{r}
- for (i in 1:20){
+ for (i in seq_along(BloodPressure[[1]][[6]])){
 if (BloodPressure[[1]]$AfterTreatment[i] <= 120) {
-  print("Optimal")
+  BloodPressure[[1]]$Status[i] <- "Optimal"
 } else if (BloodPressure[[1]]$AfterTreatment[i] <= 130) {
-  print("Borderline")
+  BloodPressure[[1]]$Status[i] <- "Borderline"
 } else if (BloodPressure[[1]]$AfterTreatment[i] > 130) {
-  print("High")
+  BloodPressure[[1]]$Status[i] <-"High"
 } else {
-  print("Error")
+  BloodPressure[[1]]$Status[i] <-"Error"
 }
 }
 ```
@@ -150,12 +150,22 @@ if (BloodPressure[[1]]$AfterTreatment[i] <= 120) {
 ## 3. Repeat "3." for the placebo data frame (within the list).
 
 ```{r}
-
+ for (i in seq_along(BloodPressure[[2]][[6]])){
+if (BloodPressure[[2]]$PlaceboAfter[i] <= 120) {
+  BloodPressure[[2]]$Status[i] <- "Optimal"
+} else if (BloodPressure[[2]]$PlaceboAfter[i] <= 130) {
+  BloodPressure[[2]]$Status[i] <- "Borderline"
+} else if (BloodPressure[[2]]$PlaceboAfter[i] > 130) {
+  BloodPressure[[2]]$Status[i] <-"High"
+} else {
+  BloodPressure[[2]]$Status[i] <-"Error"
+}
+}
 ```
 
 # Task 5
 ## 1. Write a function that
-### -Takes in a list with two data frames in int
+### -Takes in a list with two data frames in it
 ### - Takes in and R function with the default value beng set to "mean"
 ### - Finds the statistic of interest for the pre, post, and diff columns of both data frames
 ### - 
