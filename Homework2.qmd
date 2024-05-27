@@ -164,8 +164,17 @@ if (BloodPressure[[2]]$PlaceboAfter[i] <= 120) {
 ```
 
 # Task 5
+
 ## 1. Write a function that
+
 ### -Takes in a list with two data frames in it
+
 ### - Takes in and R function with the default value beng set to "mean"
+
 ### - Finds the statistic of interest for the pre, post, and diff columns of both data frames
+
 ### - 
+
+```{r}
+<- function(BloodPressure)
+```
