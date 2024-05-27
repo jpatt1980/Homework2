@@ -134,15 +134,15 @@ BloodPressure[[2]]$Status <- character(10)
 ## 2. Create a loop using if/than/else logic to create the status column's values.
 
 ```{r}
-BloodPressure[[1]]$Status <- for (i in 1:20){
+ for (i in 1:20){
 if (BloodPressure[[1]]$AfterTreatment[i] <= 120) {
-  "Optimal"
-} else if (BloodPressure[[1]]$AfterTreatment[i] <= 130){
-  "Borderline"
-} else if (BloodPressure[[1]]$AfterTreatment[i] > 130){
-  "High"
+  print("Optimal")
+} else if (BloodPressure[[1]]$AfterTreatment[i] <= 130) {
+  print("Borderline")
+} else if (BloodPressure[[1]]$AfterTreatment[i] > 130) {
+  print("High")
 } else {
-  "Error"
+  print("Error")
 }
 }
 ```
