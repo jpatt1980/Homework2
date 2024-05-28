@@ -160,7 +160,7 @@ if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 120) {
 }
 ```
 
-## 3. Repeat steps 1 and 2 for the placebo data frame (within the list).
+## 3. Repeat steps 1 and 2 for the placebo data frame (within the list). 
 
 ```{r}
  for (i in seq_along(BloodPressure[[2]][[6]])){

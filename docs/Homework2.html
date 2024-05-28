@@ -277,13 +277,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 20       Subject_20            135              113             -22</code></pre>
 </div>
 </div>
-<section id="tidyverse-installed-still-getting-the-message-error-in-mutatetreatmentdf-treatmentbpunder120-treatmentafterbp-could-not-find-functionmutate" class="level3">
-<h3 class="anchored" data-anchor-id="tidyverse-installed-still-getting-the-message-error-in-mutatetreatmentdf-treatmentbpunder120-treatmentafterbp-could-not-find-functionmutate">Tidyverse installed, still getting the message “Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP &lt; : could not find function”mutate””</h3>
-</section>
 <section id="referencing-the-tidyverse-library-to-run-mutate" class="level3">
 <h3 class="anchored" data-anchor-id="referencing-the-tidyverse-library-to-run-mutate">Referencing the tidyverse library to run “mutate()”</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Tidyverse installed, still getting the message "Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP &lt;  : could not find function "mutate""</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -509,16 +507,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="create-and-store-a-list-with-two-elemenets.-treatement-and-placebo" class="level2">
-<h2 class="anchored" data-anchor-id="create-and-store-a-list-with-two-elemenets.-treatement-and-placebo">2. Create and store a list with two elemenets. Treatement and Placebo</h2>
+<section id="create-and-store-a-list-with-two-elemenets.-treatementdf-and-placebodf" class="level2">
+<h2 class="anchored" data-anchor-id="create-and-store-a-list-with-two-elemenets.-treatementdf-and-placebodf">2. Create and store a list with two elemenets. TreatementDF and PlaceboDF</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>BloodPressure <span class="ot">&lt;-</span> <span class="fu">list</span>(TreatmentDF, PlaceboDF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>BloodPressure <span class="ot">&lt;-</span> <span class="fu">list</span>(TreatmentDF, PlaceboDF)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>BloodPressure</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
+1         Subject_1            130              114             -16
+2         Subject_2            128               98             -30
+3         Subject_3            116              113              -3
+4         Subject_4            124               99             -25
+5         Subject_5            133              107             -26
+6         Subject_6            134              116             -18
+7         Subject_7            118              113              -5
+8         Subject_8            126              111             -15
+9         Subject_9            114              119               5
+10       Subject_10            127              117             -10
+11       Subject_11            141              101             -40
+12       Subject_12            138              119             -19
+13       Subject_13            128              130               2
+14       Subject_14            140              122             -18
+15       Subject_15            137              106             -31
+16       Subject_16            131              106             -25
+17       Subject_17            120              124               4
+18       Subject_18            128              102             -26
+19       Subject_19            139              117             -22
+20       Subject_20            135              113             -22
+   TreatmentBPUnder120
+1                 TRUE
+2                 TRUE
+3                 TRUE
+4                 TRUE
+5                 TRUE
+6                 TRUE
+7                 TRUE
+8                 TRUE
+9                 TRUE
+10                TRUE
+11                TRUE
+12                TRUE
+13               FALSE
+14               FALSE
+15                TRUE
+16                TRUE
+17               FALSE
+18                TRUE
+19                TRUE
+20                TRUE
+
+[[2]]
+      Subject PlaceboBeforeBP PlaceboAfterBP PlaceboDiffBP PLBPUnder120
+1   Subject_1             138            105           -33         TRUE
+2   Subject_2             135            136             1        FALSE
+3   Subject_3             147            123           -24        FALSE
+4   Subject_4             117            130            13        FALSE
+5   Subject_5             152            134           -18        FALSE
+6   Subject_6             134            143             9        FALSE
+7   Subject_7             114            135            21        FALSE
+8   Subject_8             121            139            18        FALSE
+9   Subject_9             131            120           -11        FALSE
+10 Subject_10             130            124            -6        FALSE</code></pre>
+</div>
 </div>
 </section>
 <section id="access-the-first-list-element-using-three-different-types-of-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="access-the-first-list-element-using-three-different-types-of-syntax">3. Access the first list element using three different types of syntax</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>BloodPressure<span class="sc">$</span>TreatmentDF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
    TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
@@ -564,53 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 19                TRUE
 20                TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
-1         Subject_1            130              114             -16
-2         Subject_2            128               98             -30
-3         Subject_3            116              113              -3
-4         Subject_4            124               99             -25
-5         Subject_5            133              107             -26
-6         Subject_6            134              116             -18
-7         Subject_7            118              113              -5
-8         Subject_8            126              111             -15
-9         Subject_9            114              119               5
-10       Subject_10            127              117             -10
-11       Subject_11            141              101             -40
-12       Subject_12            138              119             -19
-13       Subject_13            128              130               2
-14       Subject_14            140              122             -18
-15       Subject_15            137              106             -31
-16       Subject_16            131              106             -25
-17       Subject_17            120              124               4
-18       Subject_18            128              102             -26
-19       Subject_19            139              117             -22
-20       Subject_20            135              113             -22
-   TreatmentBPUnder120
-1                 TRUE
-2                 TRUE
-3                 TRUE
-4                 TRUE
-5                 TRUE
-6                 TRUE
-7                 TRUE
-8                 TRUE
-9                 TRUE
-10                TRUE
-11                TRUE
-12                TRUE
-13               FALSE
-14               FALSE
-15                TRUE
-16                TRUE
-17               FALSE
-18                TRUE
-19                TRUE
-20                TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
 1         Subject_1            130              114             -16
@@ -660,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="in-one-line-access-the-placebo-data-frame-placebobefore-column" class="level2">
 <h2 class="anchored" data-anchor-id="in-one-line-access-the-placebo-data-frame-placebobefore-column">4. In one line, access the placebo data frame, PlaceboBefore column</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">2</span>]][[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">2</span>]][[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 138 135 147 117 152 134 114 121 131 130</code></pre>
 </div>
@@ -672,40 +688,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-a-new-status-column-in-each-data-frame-above" class="level2">
 <h2 class="anchored" data-anchor-id="create-a-new-status-column-in-each-data-frame-above">1. Create a new “status” column in each data frame above</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">20</span>) </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">20</span>) </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status <span class="ot">&lt;-</span> <span class="fu">character</span>(<span class="dv">10</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="create-a-loop-using-ifthanelse-logic-to-create-the-status-columns-values." class="level2">
 <h2 class="anchored" data-anchor-id="create-a-loop-using-ifthanelse-logic-to-create-the-status-columns-values.">2. Create a loop using if/than/else logic to create the status column’s values.</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(BloodPressure[[<span class="dv">1</span>]][[<span class="dv">6</span>]])){</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">120</span>) {</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Optimal"</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">130</span>) {</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Borderline"</span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&gt;</span> <span class="dv">130</span>) {</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"High"</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"Error"</span></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="repeat-3.-for-the-placebo-data-frame-within-the-list." class="level2">
-<h2 class="anchored" data-anchor-id="repeat-3.-for-the-placebo-data-frame-within-the-list.">3. Repeat “3.” for the placebo data frame (within the list).</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(BloodPressure[[<span class="dv">2</span>]][[<span class="dv">6</span>]])){</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">120</span>) {</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Optimal"</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">130</span>) {</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Borderline"</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&gt;</span> <span class="dv">130</span>) {</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"High"</span></span>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(BloodPressure[[<span class="dv">1</span>]][[<span class="dv">6</span>]])){</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">120</span>) {</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Optimal"</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">130</span>) {</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Borderline"</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>TreatmentAfterBP[i] <span class="sc">&gt;</span> <span class="dv">130</span>) {</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"High"</span></span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"Error"</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">1</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"Error"</span></span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="repeat-steps-1-and-2-for-the-placebo-data-frame-within-the-list." class="level2">
+<h2 class="anchored" data-anchor-id="repeat-steps-1-and-2-for-the-placebo-data-frame-within-the-list.">3. Repeat steps 1 and 2 for the placebo data frame (within the list).</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(BloodPressure[[<span class="dv">2</span>]][[<span class="dv">6</span>]])){</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">120</span>) {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Optimal"</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">130</span>) {</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span> <span class="st">"Borderline"</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&gt;</span> <span class="dv">130</span>) {</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"High"</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>Status[i] <span class="ot">&lt;-</span><span class="st">"Error"</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -728,19 +744,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean." class="level3">
 <h3 class="anchored" data-anchor-id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean.">Key: BPStat(list name, statistic wanted). The default statistic is “mean”.</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>ListNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"TreatmentPrePB"</span>,<span class="st">"TreatmentAfterBP"</span>,<span class="st">"TreatmentDiffBP"</span>, <span class="st">"PlaceboPreBP"</span>, <span class="st">"PlaceboAfterBP"</span>, <span class="st">"PlaceboDiffBP"</span>)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>BPStat <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">y =</span> mean){</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentPreBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">2</span>]]), </span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentAfterBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">3</span>]]), </span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentDiffBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">4</span>]]), </span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboPreBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">2</span>]]), </span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboAfterBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">3</span>]]), </span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboDiffBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">4</span>]])</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a> }</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ListNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"TreatmentPrePB"</span>,<span class="st">"TreatmentAfterBP"</span>,<span class="st">"TreatmentDiffBP"</span>, <span class="st">"PlaceboPreBP"</span>, <span class="st">"PlaceboAfterBP"</span>, <span class="st">"PlaceboDiffBP"</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>BPStat <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">y =</span> mean){</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentPreBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">2</span>]]), </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentAfterBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">3</span>]]), </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"TreatmentDiffBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">1</span>]][[<span class="dv">4</span>]]), </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboPreBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">2</span>]]), </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboAfterBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">3</span>]]), </span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PlaceboDiffBP"</span> <span class="ot">=</span> <span class="fu">y</span>(x[[<span class="dv">2</span>]][[<span class="dv">4</span>]])</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a> }</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$TreatmentPreBP
 [1] 129.35
