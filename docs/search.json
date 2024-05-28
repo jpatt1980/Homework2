@@ -123,14 +123,14 @@
     "href": "Homework2.html#create-a-loop-using-ifthanelse-logic-to-create-the-status-columns-values.",
     "title": "Programming in Base R",
     "section": "2. Create a loop using if/than/else logic to create the status column’s values.",
-    "text": "2. Create a loop using if/than/else logic to create the status column’s values.\n\n for (i in seq_along(BloodPressure[[1]][[6]])){\nif (BloodPressure[[1]]$TreatmentAfterBP[i] &lt;= 120) {\n  BloodPressure[[1]]$Status[i] &lt;- \"Optimal\"\n} else if (BloodPressure[[1]]$TreatmentAfterBP[i] &lt;= 130) {\n  BloodPressure[[1]]$Status[i] &lt;- \"Borderline\"\n} else if (BloodPressure[[1]]$TreatmentAfterBP[i] &gt; 130) {\n  BloodPressure[[1]]$Status[i] &lt;-\"High\"\n} else {\n  BloodPressure[[1]]$Status[i] &lt;-\"Error\"\n}\n}"
+    "text": "2. Create a loop using if/than/else logic to create the status column’s values.\n\n for (i in seq_along(BloodPressure[[1]][[6]])){\nif (BloodPressure[[1]]$TreatmentAfterBP[i] &lt;= 120) {\n  BloodPressure[[1]]$Status[i] &lt;- \"Optimal\"\n} else if (BloodPressure[[1]]$TreatmentAfterBP[i] &lt;= 130) {\n  BloodPressure[[1]]$Status[i] &lt;- \"Borderline\"\n} else if (BloodPressure[[1]]$TreatmentAfterBP[i] &gt; 130) {\n  BloodPressure[[1]]$Status[i] &lt;-\"High\"\n} else {\n  BloodPressure[[1]]$Status[i] &lt;-\"Error\"\n}\n }\nBloodPressure[[1]][[6]]\n\n [1] \"Optimal\"    \"Optimal\"    \"Optimal\"    \"Optimal\"    \"Optimal\"   \n [6] \"Optimal\"    \"Optimal\"    \"Optimal\"    \"Optimal\"    \"Optimal\"   \n[11] \"Optimal\"    \"Optimal\"    \"Borderline\" \"Borderline\" \"Optimal\"   \n[16] \"Optimal\"    \"Borderline\" \"Optimal\"    \"Optimal\"    \"Optimal\""
   },
   {
     "objectID": "Homework2.html#repeat-step-2-for-the-placebo-data-frame-within-the-list.",
     "href": "Homework2.html#repeat-step-2-for-the-placebo-data-frame-within-the-list.",
     "title": "Programming in Base R",
     "section": "3. Repeat step 2 for the placebo data frame (within the list).",
-    "text": "3. Repeat step 2 for the placebo data frame (within the list).\n\n for (i in seq_along(BloodPressure[[2]][[6]])){\nif (BloodPressure[[2]]$PlaceboAfterBP[i] &lt;= 120) {\n  BloodPressure[[2]]$Status[i] &lt;- \"Optimal\"\n} else if (BloodPressure[[2]]$PlaceboAfterBP[i] &lt;= 130) {\n  BloodPressure[[2]]$Status[i] &lt;- \"Borderline\"\n} else if (BloodPressure[[2]]$PlaceboAfterBP[i] &gt; 130) {\n  BloodPressure[[2]]$Status[i] &lt;-\"High\"\n} else {\n  BloodPressure[[2]]$Status[i] &lt;-\"Error\"\n}\n}"
+    "text": "3. Repeat step 2 for the placebo data frame (within the list).\n\n for (i in seq_along(BloodPressure[[2]][[6]])){\nif (BloodPressure[[2]]$PlaceboAfterBP[i] &lt;= 120) {\n  BloodPressure[[2]]$Status[i] &lt;- \"Optimal\"\n} else if (BloodPressure[[2]]$PlaceboAfterBP[i] &lt;= 130) {\n  BloodPressure[[2]]$Status[i] &lt;- \"Borderline\"\n} else if (BloodPressure[[2]]$PlaceboAfterBP[i] &gt; 130) {\n  BloodPressure[[2]]$Status[i] &lt;-\"High\"\n} else {\n  BloodPressure[[2]]$Status[i] &lt;-\"Error\"\n}\n }\nBloodPressure[[2]][[6]]\n\n [1] \"Optimal\"    \"High\"       \"Borderline\" \"Borderline\" \"High\"      \n [6] \"High\"       \"High\"       \"High\"       \"Optimal\"    \"Borderline\""
   },
   {
     "objectID": "Homework2.html#write-a-function-that",

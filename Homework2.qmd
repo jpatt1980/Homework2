@@ -157,7 +157,8 @@ if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 120) {
 } else {
   BloodPressure[[1]]$Status[i] <-"Error"
 }
-}
+ }
+BloodPressure[[1]][[6]]
 ```
 
 ## 3. Repeat step 2 for the placebo data frame (within the list).
@@ -173,7 +174,8 @@ if (BloodPressure[[2]]$PlaceboAfterBP[i] <= 120) {
 } else {
   BloodPressure[[2]]$Status[i] <-"Error"
 }
-}
+ }
+BloodPressure[[2]][[6]]
 ```
 
 # Task 5
