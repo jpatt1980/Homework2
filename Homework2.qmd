@@ -107,7 +107,7 @@ PlaceboDF <- data.frame(PlaceboSubject =
   PlaceboAfterBP = PlaceboAfterBP <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
   PlaceboDiffBP = PlaceboDiffBP <- (PlaceboAfterBP - PlaceboBeforeBP) 
 )
-PlaceboDF <- PlaceboDF |> mutate(PLBPUnder120 = PlaceboAfterBP < 120)
+PlaceboDF <- PlaceboDF |> mutate(PlaceboBPUnder120 = PlaceboAfterBP < 120)
 
 PlaceboDF
 
