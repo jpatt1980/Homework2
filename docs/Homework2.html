@@ -483,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="create-a-new-data-frame-with-the-placebo-experiment." class="level2">
 <h2 class="anchored" data-anchor-id="create-a-new-data-frame-with-the-placebo-experiment.">1. Create a new data frame with the placebo experiment.</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>PlaceboDF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Subject =</span> </span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>PlaceboDF <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">PlaceboSubject =</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  PlaceboSubject <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Subject"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">sep =</span> <span class="st">"_"</span>), </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboBeforeBP =</span> PlaceboBeforeBP <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">138</span>, <span class="dv">135</span>, <span class="dv">147</span>, <span class="dv">117</span>, <span class="dv">152</span>, <span class="dv">134</span>, <span class="dv">114</span>, <span class="dv">121</span>, <span class="dv">131</span>, <span class="dv">130</span>), </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboAfterBP =</span> PlaceboAfterBP <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">136</span>, <span class="dv">123</span>, <span class="dv">130</span>, <span class="dv">134</span>, <span class="dv">143</span>, <span class="dv">135</span>, <span class="dv">139</span>, <span class="dv">120</span>, <span class="dv">124</span>), </span>
@@ -493,17 +493,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>PlaceboDF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      Subject PlaceboBeforeBP PlaceboAfterBP PlaceboDiffBP PLBPUnder120
-1   Subject_1             138            105           -33         TRUE
-2   Subject_2             135            136             1        FALSE
-3   Subject_3             147            123           -24        FALSE
-4   Subject_4             117            130            13        FALSE
-5   Subject_5             152            134           -18        FALSE
-6   Subject_6             134            143             9        FALSE
-7   Subject_7             114            135            21        FALSE
-8   Subject_8             121            139            18        FALSE
-9   Subject_9             131            120           -11        FALSE
-10 Subject_10             130            124            -6        FALSE</code></pre>
+<pre><code>   PlaceboSubject PlaceboBeforeBP PlaceboAfterBP PlaceboDiffBP PLBPUnder120
+1       Subject_1             138            105           -33         TRUE
+2       Subject_2             135            136             1        FALSE
+3       Subject_3             147            123           -24        FALSE
+4       Subject_4             117            130            13        FALSE
+5       Subject_5             152            134           -18        FALSE
+6       Subject_6             134            143             9        FALSE
+7       Subject_7             114            135            21        FALSE
+8       Subject_8             121            139            18        FALSE
+9       Subject_9             131            120           -11        FALSE
+10     Subject_10             130            124            -6        FALSE</code></pre>
 </div>
 </div>
 </section>
@@ -559,28 +559,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 20                TRUE
 
 [[2]]
-      Subject PlaceboBeforeBP PlaceboAfterBP PlaceboDiffBP PLBPUnder120
-1   Subject_1             138            105           -33         TRUE
-2   Subject_2             135            136             1        FALSE
-3   Subject_3             147            123           -24        FALSE
-4   Subject_4             117            130            13        FALSE
-5   Subject_5             152            134           -18        FALSE
-6   Subject_6             134            143             9        FALSE
-7   Subject_7             114            135            21        FALSE
-8   Subject_8             121            139            18        FALSE
-9   Subject_9             131            120           -11        FALSE
-10 Subject_10             130            124            -6        FALSE</code></pre>
+   PlaceboSubject PlaceboBeforeBP PlaceboAfterBP PlaceboDiffBP PLBPUnder120
+1       Subject_1             138            105           -33         TRUE
+2       Subject_2             135            136             1        FALSE
+3       Subject_3             147            123           -24        FALSE
+4       Subject_4             117            130            13        FALSE
+5       Subject_5             152            134           -18        FALSE
+6       Subject_6             134            143             9        FALSE
+7       Subject_7             114            135            21        FALSE
+8       Subject_8             121            139            18        FALSE
+9       Subject_9             131            120           -11        FALSE
+10     Subject_10             130            124            -6        FALSE</code></pre>
 </div>
 </div>
 </section>
 <section id="access-the-first-list-element-using-three-different-types-of-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="access-the-first-list-element-using-three-different-types-of-syntax">3. Access the first list element using three different types of syntax</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>BloodPressure<span class="sc">$</span>TreatmentDF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>NULL</code></pre>
+<pre><code>[[1]]
+   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
+1         Subject_1            130              114             -16
+2         Subject_2            128               98             -30
+3         Subject_3            116              113              -3
+4         Subject_4            124               99             -25
+5         Subject_5            133              107             -26
+6         Subject_6            134              116             -18
+7         Subject_7            118              113              -5
+8         Subject_8            126              111             -15
+9         Subject_9            114              119               5
+10       Subject_10            127              117             -10
+11       Subject_11            141              101             -40
+12       Subject_12            138              119             -19
+13       Subject_13            128              130               2
+14       Subject_14            140              122             -18
+15       Subject_15            137              106             -31
+16       Subject_16            131              106             -25
+17       Subject_17            120              124               4
+18       Subject_18            128              102             -26
+19       Subject_19            139              117             -22
+20       Subject_20            135              113             -22
+   TreatmentBPUnder120
+1                 TRUE
+2                 TRUE
+3                 TRUE
+4                 TRUE
+5                 TRUE
+6                 TRUE
+7                 TRUE
+8                 TRUE
+9                 TRUE
+10                TRUE
+11                TRUE
+12                TRUE
+13               FALSE
+14               FALSE
+15                TRUE
+16                TRUE
+17               FALSE
+18                TRUE
+19                TRUE
+20                TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>BloodPressure[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
    TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
@@ -708,8 +750,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="repeat-steps-1-and-2-for-the-placebo-data-frame-within-the-list." class="level2">
-<h2 class="anchored" data-anchor-id="repeat-steps-1-and-2-for-the-placebo-data-frame-within-the-list.">3. Repeat steps 1 and 2 for the placebo data frame (within the list).</h2>
+<section id="repeat-step-2-for-the-placebo-data-frame-within-the-list." class="level2">
+<h2 class="anchored" data-anchor-id="repeat-step-2-for-the-placebo-data-frame-within-the-list.">3. Repeat step 2 for the placebo data frame (within the list).</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(BloodPressure[[<span class="dv">2</span>]][[<span class="dv">6</span>]])){</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (BloodPressure[[<span class="dv">2</span>]]<span class="sc">$</span>PlaceboAfterBP[i] <span class="sc">&lt;=</span> <span class="dv">120</span>) {</span>
@@ -730,19 +772,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="write-a-function-that" class="level2">
 <h2 class="anchored" data-anchor-id="write-a-function-that">Write a function that</h2>
 <section id="takes-in-a-list-with-two-data-frames-in-it" class="level3">
-<h3 class="anchored" data-anchor-id="takes-in-a-list-with-two-data-frames-in-it">-Takes in a list with two data frames in it</h3>
+<h3 class="anchored" data-anchor-id="takes-in-a-list-with-two-data-frames-in-it">- Takes in a list with two data frames in it</h3>
 </section>
 <section id="takes-in-an-r-function-with-the-default-value-being-set-to-mean" class="level3">
 <h3 class="anchored" data-anchor-id="takes-in-an-r-function-with-the-default-value-being-set-to-mean">- Takes in an R function with the default value being set to “mean”</h3>
 </section>
 <section id="finds-the-statistic-of-interest-for-the-pre-post-and-diff-columns-of-both-data-frames" class="level3">
 <h3 class="anchored" data-anchor-id="finds-the-statistic-of-interest-for-the-pre-post-and-diff-columns-of-both-data-frames">- Finds the statistic of interest for the pre, post, and diff columns of both data frames</h3>
-</section>
-</section>
-<section id="blood-pressure-statistics-of-interest" class="level2">
-<h2 class="anchored" data-anchor-id="blood-pressure-statistics-of-interest">Blood Pressure Statistics of Interest</h2>
-<section id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean." class="level3">
-<h3 class="anchored" data-anchor-id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean.">Key: BPStat(list name, statistic wanted). The default statistic is “mean”.</h3>
+<section id="blood-pressure-statistics-of-interest" class="level4">
+<h4 class="anchored" data-anchor-id="blood-pressure-statistics-of-interest">Blood Pressure Statistics of Interest</h4>
+<section id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean." class="level5">
+<h5 class="anchored" data-anchor-id="key-bpstatlist-name-statistic-wanted.-the-default-statistic-is-mean.">Key: BPStat(list name, statistic wanted). The default statistic is “mean”.</h5>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>ListNames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"TreatmentPrePB"</span>,<span class="st">"TreatmentAfterBP"</span>,<span class="st">"TreatmentDiffBP"</span>, <span class="st">"PlaceboPreBP"</span>, <span class="st">"PlaceboAfterBP"</span>, <span class="st">"PlaceboDiffBP"</span>)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>BPStat <span class="ot">&lt;-</span> <span class="cf">function</span>(x,<span class="at">y =</span> mean){</span>
@@ -779,6 +819,8 @@ $PlaceboDiffBP
 </div>
 
 
+</section>
+</section>
 </section>
 </section>
 </section>

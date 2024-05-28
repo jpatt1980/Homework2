@@ -101,7 +101,7 @@ knitr::kable(TreatmentDF)
 ## 1. Create a new data frame with the placebo experiment.
 
 ```{r}
-PlaceboDF <- data.frame(Subject = 
+PlaceboDF <- data.frame(PlaceboSubject = 
   PlaceboSubject <- paste("Subject", 1:10, sep = "_"), 
   PlaceboBeforeBP = PlaceboBeforeBP <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130), 
   PlaceboAfterBP = PlaceboAfterBP <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
@@ -124,8 +124,8 @@ BloodPressure
 ## 3. Access the first list element using three different types of syntax
 
 ```{r}
-BloodPressure$TreatmentDF
 BloodPressure[1]
+BloodPressure[1:1]
 BloodPressure[[1]]
 ```
 
@@ -160,7 +160,7 @@ if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 120) {
 }
 ```
 
-## 3. Repeat steps 1 and 2 for the placebo data frame (within the list). 
+## 3. Repeat step 2 for the placebo data frame (within the list).
 
 ```{r}
  for (i in seq_along(BloodPressure[[2]][[6]])){
@@ -180,15 +180,15 @@ if (BloodPressure[[2]]$PlaceboAfterBP[i] <= 120) {
 
 ## Write a function that
 
-### -Takes in a list with two data frames in it
+### - Takes in a list with two data frames in it
 
 ### - Takes in an R function with the default value being set to "mean"
 
 ### - Finds the statistic of interest for the pre, post, and diff columns of both data frames
 
-## Blood Pressure Statistics of Interest
+#### Blood Pressure Statistics of Interest
 
-### Key: BPStat(list name, statistic wanted). The default statistic is "mean".
+##### Key: BPStat(list name, statistic wanted). The default statistic is "mean".
 
 ```{r}
 ListNames <- c("TreatmentPrePB","TreatmentAfterBP","TreatmentDiffBP", "PlaceboPreBP", "PlaceboAfterBP", "PlaceboDiffBP")
