@@ -78,6 +78,7 @@ TreatmentDF[which(TreatmentDF$TreatmentDiffBP < 0), ]
 
 ```{r}
 #| echo: false
+# Running TidyVerse library in the code due to mutate() not working properly without running it in the Console before each run. 
 library(tidyverse)
 ```
 
