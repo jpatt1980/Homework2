@@ -68,20 +68,22 @@ TreatmentDF <- data.frame(TreatmentSubject, TreatmentPreBP, TreatmentAfterBP, Tr
 TreatmentDF
 ```
 
+
 ## 2. Return only rows where TreatmentDiffBP column is negative.
 
 ```{r}
 TreatmentDF[which(TreatmentDF$TreatmentDiffBP < 0), ]
 ```
 
-## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatmentBP is less than 120.
 
+### Tidyverse installed, still getting the message "Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP <  : could not find function "mutate""
+### Referencing the tidyverse library to run "mutate()"
 ```{r}
-#| echo: false
-# Running TidyVerse library in the code due to mutate() not working properly without running it in the Console before each run. 
 library(tidyverse)
 ```
 
+
+## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatmentBP is less than 120.
 ```{r}
 TreatmentDF <- TreatmentDF |>
   mutate(TreatmentBPUnder120 = TreatmentAfterBP < 120)
