@@ -9,53 +9,53 @@ editor: visual
 ## 1. Create two vectors for the pre-treatment and post treatement measurements.
 
 ```{r}
-PreTreatment <-c(130, 128, 116, 124, 133, 134, 118, 126, 114, 127, 141, 138, 128, 140, 137, 131, 120, 128, 139, 135)
+TreatmentPreBP <-c(130, 128, 116, 124, 133, 134, 118, 126, 114, 127, 141, 138, 128, 140, 137, 131, 120, 128, 139, 135)
 
-AfterTreatment <-c(114, 98, 113, 99, 107, 116, 113, 111, 119, 117, 101, 119, 130, 122, 106, 106, 124, 102, 117, 113)
+TreatmentAfterBP <-c(114, 98, 113, 99, 107, 116, 113, 111, 119, 117, 101, 119, 130, 122, 106, 106, 124, 102, 117, 113)
 
-PreTreatment
-AfterTreatment
+TreatmentPreBP
+TreatmentAfterBP
 
 ```
 
 ## 2. Assign names to the vector elements.
 
 ```{r}
-Subject <- paste("Subject", 1:20, sep = "_")
-Subject
+TreatmentSubject <- paste("Subject", 1:20, sep = "_")
+TreatmentSubject
 
 ```
 
 ## 3. Calculate change in blood pressure between treatements.
 
 ```{r}
-TreatmentDiffs <- (AfterTreatment-PreTreatment) 
+TreatmentDiffBP <- (TreatmentAfterBP-TreatmentPreBP) 
 
-TreatmentDiffs
+TreatmentDiffBP
 ```
 
 ## 4. Calculate the average decrease in blood pressure across all patients.
 
 ```{r}
-mean(TreatmentDiffs)
+mean(TreatmentDiffBP)
 ```
 
 ## 5. Determine which patients experienced a decrease in blood pressure.
 
 ```{r}
-Subject[which(AfterTreatment < PreTreatment)]
+TreatmentSubject[which(TreatmentAfterBP < TreatmentPreBP)]
 ```
 
 ## 6. Subset the vector of differences to only return those that have a positive change
 
 ```{r}
-TreatmentDiffs [which(AfterTreatment < PreTreatment)]
+TreatmentDiffBP [which(TreatmentAfterBP < TreatmentPreBP)]
 ```
 
 ## 7. Calculate the average decrease in blood pressure.
 
 ```{r}
-mean(TreatmentDiffs[which(AfterTreatment < PreTreatment)])
+mean(TreatmentDiffBP[which(TreatmentAfterBP < TreatmentPreBP)])
 ```
 
 # Task 2
@@ -63,27 +63,34 @@ mean(TreatmentDiffs[which(AfterTreatment < PreTreatment)])
 ## 1. Create a data frame object with four columns corresponding to the above data.
 
 ```{r}
-TreatmentsDF <- data.frame(Subject, PreTreatment, AfterTreatment, TreatmentDiffs)
-TreatmentsDF
+TreatmentDF <- data.frame(TreatmentSubject, TreatmentPreBP, TreatmentAfterBP, TreatmentDiffBP)
+
+TreatmentDF
 ```
 
-## 2. Return only rows where TreatmentDiffs column is negative.
+## 2. Return only rows where TreatmentDiffBP column is negative.
 
 ```{r}
-TreatmentsDF[which(TreatmentsDF$TreatmentDiffs < 0), ]
+TreatmentDF[which(TreatmentDF$TreatmentDiffBP < 0), ]
 ```
 
-## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatment BP is less than 120.
+## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatmentBP is less than 120.
 
 ```{r}
-TreatmentsDF <- TreatmentsDF |>
-  mutate(BPUnder120 = AfterTreatment < 120)
+#| echo: false
+library(tidyverse)
+```
+
+```{r}
+TreatmentDF <- TreatmentDF |>
+  mutate(TreatmentBPUnder120 = TreatmentAfterBP < 120)
+TreatmentDF$TreatmentBPUnder120
 ```
 
 ## 4. Print the data frame out nicely in the final documnet.
 
 ```{r}
-knitr::kable(TreatmentsDF)
+knitr::kable(TreatmentDF)
 ```
 
 # Task 3
@@ -92,12 +99,13 @@ knitr::kable(TreatmentsDF)
 
 ```{r}
 PlaceboDF <- data.frame(Subject = 
-  PLSubject <- paste("Subject", 1:10, sep = "_"), 
-  PlaceboBefore = PlaceboBefore <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130), 
-  PlaceboAfter = PlaceboAfter <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
-  PlaceboDiffs = PlaceboDiffs <- (PlaceboAfter - PlaceboBefore) 
+  PlaceboSubject <- paste("Subject", 1:10, sep = "_"), 
+  PlaceboBeforeBP = PlaceboBeforeBP <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130), 
+  PlaceboAfterBP = PlaceboAfterBP <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
+  PlaceboDiffBP = PlaceboDiffBP <- (PlaceboAfterBP - PlaceboBeforeBP) 
 )
-PlaceboDF <- PlaceboDF |> mutate(PLBPUnder120 = PlaceboAfter < 120)
+PlaceboDF <- PlaceboDF |> mutate(PLBPUnder120 = PlaceboAfterBP < 120)
+
 PlaceboDF
 
 ```
@@ -105,7 +113,7 @@ PlaceboDF
 ## 2. Create and store a list with two elemenets. Treatement and Placebo
 
 ```{r}
-BloodPressure <- list(TreatmentsDF, PlaceboDF)
+BloodPressure <- list(TreatmentDF, PlaceboDF)
 ```
 
 ## 3. Access the first list element using three different types of syntax
@@ -135,11 +143,11 @@ BloodPressure[[2]]$Status <- character(10)
 
 ```{r}
  for (i in seq_along(BloodPressure[[1]][[6]])){
-if (BloodPressure[[1]]$AfterTreatment[i] <= 120) {
+if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 120) {
   BloodPressure[[1]]$Status[i] <- "Optimal"
-} else if (BloodPressure[[1]]$AfterTreatment[i] <= 130) {
+} else if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 130) {
   BloodPressure[[1]]$Status[i] <- "Borderline"
-} else if (BloodPressure[[1]]$AfterTreatment[i] > 130) {
+} else if (BloodPressure[[1]]$TreatmentAfterBP[i] > 130) {
   BloodPressure[[1]]$Status[i] <-"High"
 } else {
   BloodPressure[[1]]$Status[i] <-"Error"
@@ -151,11 +159,11 @@ if (BloodPressure[[1]]$AfterTreatment[i] <= 120) {
 
 ```{r}
  for (i in seq_along(BloodPressure[[2]][[6]])){
-if (BloodPressure[[2]]$PlaceboAfter[i] <= 120) {
+if (BloodPressure[[2]]$PlaceboAfterBP[i] <= 120) {
   BloodPressure[[2]]$Status[i] <- "Optimal"
-} else if (BloodPressure[[2]]$PlaceboAfter[i] <= 130) {
+} else if (BloodPressure[[2]]$PlaceboAfterBP[i] <= 130) {
   BloodPressure[[2]]$Status[i] <- "Borderline"
-} else if (BloodPressure[[2]]$PlaceboAfter[i] > 130) {
+} else if (BloodPressure[[2]]$PlaceboAfterBP[i] > 130) {
   BloodPressure[[2]]$Status[i] <-"High"
 } else {
   BloodPressure[[2]]$Status[i] <-"Error"
@@ -165,16 +173,30 @@ if (BloodPressure[[2]]$PlaceboAfter[i] <= 120) {
 
 # Task 5
 
-## 1. Write a function that
+## Write a function that
 
 ### -Takes in a list with two data frames in it
 
-### - Takes in and R function with the default value beng set to "mean"
+### - Takes in an R function with the default value being set to "mean"
 
 ### - Finds the statistic of interest for the pre, post, and diff columns of both data frames
 
-### - 
+## Blood Pressure Statistics of Interest
+
+### Key: BPStat(list name, statistic wanted). The default statistic is "mean".
 
 ```{r}
-<- function(BloodPressure)
+ListNames <- c("TreatmentPrePB","TreatmentAfterBP","TreatmentDiffBP", "PlaceboPreBP", "PlaceboAfterBP", "PlaceboDiffBP")
+BPStat <- function(x,y = mean){
+  list(
+    "TreatmentPreBP" = y(x[[1]][[2]]), 
+    "TreatmentAfterBP" = y(x[[1]][[3]]), 
+    "TreatmentDiffBP" = y(x[[1]][[4]]), 
+    "PlaceboPreBP" = y(x[[2]][[2]]), 
+    "PlaceboAfterBP" = y(x[[2]][[3]]), 
+    "PlaceboDiffBP" = y(x[[2]][[4]])
+    )
+ }
+
+BPStat(BloodPressure)
 ```
