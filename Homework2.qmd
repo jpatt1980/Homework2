@@ -109,7 +109,7 @@ PlaceboDF <- data.frame(PlaceboSubject =
 )
 PlaceboDF <- PlaceboDF |> mutate(PlaceboBPUnder120 = PlaceboAfterBP < 120)
 
-PlaceboDF
+knitr::kable(PlaceboDF)
 
 ```
 
@@ -118,15 +118,15 @@ PlaceboDF
 ```{r}
 BloodPressure <- list(TreatmentDF, PlaceboDF)
 
-BloodPressure
+knitr::kable(BloodPressure)
 ```
 
 ## 3. Access the first list element using three different types of syntax
 
 ```{r}
-BloodPressure[1]
-BloodPressure[1:1]
-BloodPressure[[1]]
+knitr::kable(BloodPressure[1])
+knitr::kable(BloodPressure[1:1])
+knitr::kable(BloodPressure[[1]])
 ```
 
 ## 4. In one line, access the placebo data frame, PlaceboBefore column
