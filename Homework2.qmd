@@ -76,9 +76,9 @@ TreatmentDF[which(TreatmentDF$TreatmentDiffBP < 0), ]
 ```
 
 
-### Tidyverse installed, still getting the message "Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP <  : could not find function "mutate""
 ### Referencing the tidyverse library to run "mutate()"
 ```{r}
+### Tidyverse installed, still getting the message "Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP <  : could not find function "mutate""
 library(tidyverse)
 ```
 
@@ -113,17 +113,19 @@ PlaceboDF
 
 ```
 
-## 2. Create and store a list with two elemenets. Treatement and Placebo
+## 2. Create and store a list with two elemenets. TreatementDF and PlaceboDF
 
 ```{r}
 BloodPressure <- list(TreatmentDF, PlaceboDF)
+
+BloodPressure
 ```
 
 ## 3. Access the first list element using three different types of syntax
 
 ```{r}
+BloodPressure$TreatmentDF
 BloodPressure[1]
-BloodPressure[1:1]
 BloodPressure[[1]]
 ```
 
@@ -158,7 +160,7 @@ if (BloodPressure[[1]]$TreatmentAfterBP[i] <= 120) {
 }
 ```
 
-## 3. Repeat "3." for the placebo data frame (within the list).
+## 3. Repeat steps 1 and 2 for the placebo data frame (within the list).
 
 ```{r}
  for (i in seq_along(BloodPressure[[2]][[6]])){
