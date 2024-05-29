@@ -185,7 +185,6 @@ BloodPressure[[2]][[6]]
 ##### Key: BPStat(list name, statistic wanted). The default statistic is "mean".
 
 ```{r}
-ListNames <- c("TreatmentPrePB","TreatmentAfterBP","TreatmentDiffBP", "PlaceboPreBP", "PlaceboAfterBP", "PlaceboDiffBP")
 BPStat <- function(x,y = mean){
   list(
     "TreatmentPreBP" = y(x[[1]][[2]]), 
