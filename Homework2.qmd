@@ -68,25 +68,17 @@ TreatmentDF <- data.frame(TreatmentSubject, TreatmentPreBP, TreatmentAfterBP, Tr
 TreatmentDF
 ```
 
-
 ## 2. Return only rows where TreatmentDiffBP column is negative.
 
 ```{r}
 TreatmentDF[which(TreatmentDF$TreatmentDiffBP < 0), ]
 ```
 
-
-### Referencing the tidyverse library to run "mutate()"
-```{r}
-### Tidyverse installed, still getting the message "Error in mutate(TreatmentDF, TreatmentBPUnder120 = TreatmentAfterBP <  : could not find function "mutate""
-library(tidyverse)
-```
-
-
 ## 3. Add a new column to the data frame corresponding to TRUE if the AfterTreatmentBP is less than 120.
+
 ```{r}
 TreatmentDF <- TreatmentDF |>
-  mutate(TreatmentBPUnder120 = TreatmentAfterBP < 120)
+  dplyr::mutate(TreatmentBPUnder120 = TreatmentAfterBP < 120)
 TreatmentDF$TreatmentBPUnder120
 ```
 
@@ -107,7 +99,7 @@ PlaceboDF <- data.frame(PlaceboSubject =
   PlaceboAfterBP = PlaceboAfterBP <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
   PlaceboDiffBP = PlaceboDiffBP <- (PlaceboAfterBP - PlaceboBeforeBP) 
 )
-PlaceboDF <- PlaceboDF |> mutate(PlaceboBPUnder120 = PlaceboAfterBP < 120)
+PlaceboDF <- PlaceboDF |> dplyr::mutate(PlaceboBPUnder120 = PlaceboAfterBP < 120)
 
 knitr::kable(PlaceboDF)
 
