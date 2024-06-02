@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -78,7 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -87,6 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -122,7 +129,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <section id="task-1-basic-vector-practice" class="level1">
 <h1>Task 1: Basic Vector practice</h1>
@@ -161,12 +170,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="calculate-change-in-blood-pressure-between-treatements." class="level2">
 <h2 class="anchored" data-anchor-id="calculate-change-in-blood-pressure-between-treatements.">3. Calculate change in blood pressure between treatements.</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TreatmentDiffBP <span class="ot">&lt;-</span> (TreatmentAfterBP<span class="sc">-</span>TreatmentPreBP) </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>TreatmentDiffBP <span class="ot">&lt;-</span> (TreatmentPreBP <span class="sc">-</span> TreatmentAfterBP) </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>TreatmentDiffBP</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -16 -30  -3 -25 -26 -18  -5 -15   5 -10 -40 -19   2 -18 -31 -25   4 -26 -22
-[20] -22</code></pre>
+<pre><code> [1] 16 30  3 25 26 18  5 15 -5 10 40 19 -2 18 31 25 -4 26 22 22</code></pre>
 </div>
 </div>
 </section>
@@ -175,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(TreatmentDiffBP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -17</code></pre>
+<pre><code>[1] 17</code></pre>
 </div>
 </div>
 </section>
@@ -194,18 +202,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="subset-the-vector-of-differences-to-only-return-those-that-have-a-positive-change" class="level2">
 <h2 class="anchored" data-anchor-id="subset-the-vector-of-differences-to-only-return-those-that-have-a-positive-change">6. Subset the vector of differences to only return those that have a positive change</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>TreatmentDiffBP [<span class="fu">which</span>(TreatmentAfterBP <span class="sc">&lt;</span> TreatmentPreBP)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>TreatmentDiffBP[TreatmentDiffBP <span class="sc">&gt;</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -16 -30  -3 -25 -26 -18  -5 -15 -10 -40 -19 -18 -31 -25 -26 -22 -22</code></pre>
+<pre><code> [1] 16 30  3 25 26 18  5 15 10 40 19 18 31 25 26 22 22</code></pre>
 </div>
 </div>
 </section>
 <section id="calculate-the-average-decrease-in-blood-pressure." class="level2">
 <h2 class="anchored" data-anchor-id="calculate-the-average-decrease-in-blood-pressure.">7. Calculate the average decrease in blood pressure.</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(TreatmentDiffBP[<span class="fu">which</span>(TreatmentAfterBP <span class="sc">&lt;</span> TreatmentPreBP)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(TreatmentDiffBP[TreatmentDiffBP <span class="sc">&gt;</span> <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -20.64706</code></pre>
+<pre><code>[1] 20.64706</code></pre>
 </div>
 </div>
 </section>
@@ -220,26 +228,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>TreatmentDF</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
-1         Subject_1            130              114             -16
-2         Subject_2            128               98             -30
-3         Subject_3            116              113              -3
-4         Subject_4            124               99             -25
-5         Subject_5            133              107             -26
-6         Subject_6            134              116             -18
-7         Subject_7            118              113              -5
-8         Subject_8            126              111             -15
-9         Subject_9            114              119               5
-10       Subject_10            127              117             -10
-11       Subject_11            141              101             -40
-12       Subject_12            138              119             -19
-13       Subject_13            128              130               2
-14       Subject_14            140              122             -18
-15       Subject_15            137              106             -31
-16       Subject_16            131              106             -25
-17       Subject_17            120              124               4
-18       Subject_18            128              102             -26
-19       Subject_19            139              117             -22
-20       Subject_20            135              113             -22</code></pre>
+1         Subject_1            130              114              16
+2         Subject_2            128               98              30
+3         Subject_3            116              113               3
+4         Subject_4            124               99              25
+5         Subject_5            133              107              26
+6         Subject_6            134              116              18
+7         Subject_7            118              113               5
+8         Subject_8            126              111              15
+9         Subject_9            114              119              -5
+10       Subject_10            127              117              10
+11       Subject_11            141              101              40
+12       Subject_12            138              119              19
+13       Subject_13            128              130              -2
+14       Subject_14            140              122              18
+15       Subject_15            137              106              31
+16       Subject_16            131              106              25
+17       Subject_17            120              124              -4
+18       Subject_18            128              102              26
+19       Subject_19            139              117              22
+20       Subject_20            135              113              22</code></pre>
 </div>
 </div>
 </section>
@@ -249,23 +257,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>TreatmentDF[<span class="fu">which</span>(TreatmentDF<span class="sc">$</span>TreatmentDiffBP <span class="sc">&lt;</span> <span class="dv">0</span>), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   TreatmentSubject TreatmentPreBP TreatmentAfterBP TreatmentDiffBP
-1         Subject_1            130              114             -16
-2         Subject_2            128               98             -30
-3         Subject_3            116              113              -3
-4         Subject_4            124               99             -25
-5         Subject_5            133              107             -26
-6         Subject_6            134              116             -18
-7         Subject_7            118              113              -5
-8         Subject_8            126              111             -15
-10       Subject_10            127              117             -10
-11       Subject_11            141              101             -40
-12       Subject_12            138              119             -19
-14       Subject_14            140              122             -18
-15       Subject_15            137              106             -31
-16       Subject_16            131              106             -25
-18       Subject_18            128              102             -26
-19       Subject_19            139              117             -22
-20       Subject_20            135              113             -22</code></pre>
+9         Subject_9            114              119              -5
+13       Subject_13            128              130              -2
+17       Subject_17            120              124              -4</code></pre>
 </div>
 </div>
 </section>
@@ -308,140 +302,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">-16</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">-30</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">116</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">124</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">133</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">118</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-5</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">126</td>
 <td style="text-align: right;">111</td>
-<td style="text-align: right;">-15</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">-5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">127</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-10</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_11</td>
 <td style="text-align: right;">141</td>
 <td style="text-align: right;">101</td>
-<td style="text-align: right;">-40</td>
+<td style="text-align: right;">40</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_12</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">-19</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_13</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">-2</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_14</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: right;">122</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_15</td>
 <td style="text-align: right;">137</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-31</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_16</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_17</td>
 <td style="text-align: right;">120</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">-4</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_18</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_19</td>
 <td style="text-align: right;">139</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_20</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
@@ -459,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  PlaceboSubject <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Subject"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">sep =</span> <span class="st">"_"</span>), </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboBeforeBP =</span> PlaceboBeforeBP <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">138</span>, <span class="dv">135</span>, <span class="dv">147</span>, <span class="dv">117</span>, <span class="dv">152</span>, <span class="dv">134</span>, <span class="dv">114</span>, <span class="dv">121</span>, <span class="dv">131</span>, <span class="dv">130</span>), </span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboAfterBP =</span> PlaceboAfterBP <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">105</span>, <span class="dv">136</span>, <span class="dv">123</span>, <span class="dv">130</span>, <span class="dv">134</span>, <span class="dv">143</span>, <span class="dv">135</span>, <span class="dv">139</span>, <span class="dv">120</span>, <span class="dv">124</span>), </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboDiffBP =</span> PlaceboDiffBP <span class="ot">&lt;-</span> (PlaceboAfterBP <span class="sc">-</span> PlaceboBeforeBP) </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">PlaceboDiffBP =</span> PlaceboDiffBP <span class="ot">&lt;-</span> (PlaceboBeforeBP <span class="sc">-</span> PlaceboAfterBP) </span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>PlaceboDF <span class="ot">&lt;-</span> PlaceboDF <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">PlaceboBPUnder120 =</span> PlaceboAfterBP <span class="sc">&lt;</span> <span class="dv">120</span>)</span>
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -487,70 +481,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">105</td>
-<td style="text-align: right;">-33</td>
+<td style="text-align: right;">33</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">136</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">147</td>
 <td style="text-align: right;">123</td>
-<td style="text-align: right;">-24</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">117</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">-13</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">152</td>
 <td style="text-align: right;">134</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">143</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">-9</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">135</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">-21</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">121</td>
 <td style="text-align: right;">139</td>
-<td style="text-align: right;">18</td>
+<td style="text-align: right;">-18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">120</td>
-<td style="text-align: right;">-11</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">-6</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
@@ -565,7 +559,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <table class="kable_wrapper">
 <tbody>
 <tr>
@@ -592,140 +585,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">-16</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">-30</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">116</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">124</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">133</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">118</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-5</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">126</td>
 <td style="text-align: right;">111</td>
-<td style="text-align: right;">-15</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">-5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">127</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-10</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_11</td>
 <td style="text-align: right;">141</td>
 <td style="text-align: right;">101</td>
-<td style="text-align: right;">-40</td>
+<td style="text-align: right;">40</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_12</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">-19</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_13</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">-2</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_14</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: right;">122</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_15</td>
 <td style="text-align: right;">137</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-31</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_16</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_17</td>
 <td style="text-align: right;">120</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">-4</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_18</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_19</td>
 <td style="text-align: right;">139</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_20</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
@@ -754,70 +747,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">105</td>
-<td style="text-align: right;">-33</td>
+<td style="text-align: right;">33</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">136</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">-1</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">147</td>
 <td style="text-align: right;">123</td>
-<td style="text-align: right;">-24</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">117</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">-13</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">152</td>
 <td style="text-align: right;">134</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">143</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">-9</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">135</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">-21</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">121</td>
 <td style="text-align: right;">139</td>
-<td style="text-align: right;">18</td>
+<td style="text-align: right;">-18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">120</td>
-<td style="text-align: right;">-11</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">-6</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 </tbody>
@@ -825,7 +818,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </td>
 </tr>
 </tbody>
-
 </table>
 </div>
 </div>
@@ -833,182 +825,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="access-the-first-list-element-using-three-different-types-of-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="access-the-first-list-element-using-three-different-types-of-syntax">3. Access the first list element using three different types of syntax</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure<span class="sc">$</span>TreatmentDF)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
-<table class="kable_wrapper">
-<tbody>
-<tr>
-<td>
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 17%">
-<col style="width: 20%">
-<col style="width: 18%">
-<col style="width: 23%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">TreatmentSubject</th>
-<th style="text-align: right;">TreatmentPreBP</th>
-<th style="text-align: right;">TreatmentAfterBP</th>
-<th style="text-align: right;">TreatmentDiffBP</th>
-<th style="text-align: left;">TreatmentBPUnder120</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Subject_1</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">114</td>
-<td style="text-align: right;">-16</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_2</td>
-<td style="text-align: right;">128</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">-30</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_3</td>
-<td style="text-align: right;">116</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">-3</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_4</td>
-<td style="text-align: right;">124</td>
-<td style="text-align: right;">99</td>
-<td style="text-align: right;">-25</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_5</td>
-<td style="text-align: right;">133</td>
-<td style="text-align: right;">107</td>
-<td style="text-align: right;">-26</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_6</td>
-<td style="text-align: right;">134</td>
-<td style="text-align: right;">116</td>
-<td style="text-align: right;">-18</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_7</td>
-<td style="text-align: right;">118</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">-5</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_8</td>
-<td style="text-align: right;">126</td>
-<td style="text-align: right;">111</td>
-<td style="text-align: right;">-15</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_9</td>
-<td style="text-align: right;">114</td>
-<td style="text-align: right;">119</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_10</td>
-<td style="text-align: right;">127</td>
-<td style="text-align: right;">117</td>
-<td style="text-align: right;">-10</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_11</td>
-<td style="text-align: right;">141</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: right;">-40</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_12</td>
-<td style="text-align: right;">138</td>
-<td style="text-align: right;">119</td>
-<td style="text-align: right;">-19</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_13</td>
-<td style="text-align: right;">128</td>
-<td style="text-align: right;">130</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_14</td>
-<td style="text-align: right;">140</td>
-<td style="text-align: right;">122</td>
-<td style="text-align: right;">-18</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_15</td>
-<td style="text-align: right;">137</td>
-<td style="text-align: right;">106</td>
-<td style="text-align: right;">-31</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_16</td>
-<td style="text-align: right;">131</td>
-<td style="text-align: right;">106</td>
-<td style="text-align: right;">-25</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_17</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">124</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_18</td>
-<td style="text-align: right;">128</td>
-<td style="text-align: right;">102</td>
-<td style="text-align: right;">-26</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Subject_19</td>
-<td style="text-align: right;">139</td>
-<td style="text-align: right;">117</td>
-<td style="text-align: right;">-22</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Subject_20</td>
-<td style="text-align: right;">135</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">-22</td>
-<td style="text-align: left;">TRUE</td>
-</tr>
-</tbody>
-</table>
-</td>
-</tr>
-</tbody>
-
-</table>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure[<span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-
 <table class="kable_wrapper">
 <tbody>
 <tr>
@@ -1035,140 +857,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">-16</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">-30</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">116</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">124</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">133</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">118</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-5</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">126</td>
 <td style="text-align: right;">111</td>
-<td style="text-align: right;">-15</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">-5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">127</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-10</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_11</td>
 <td style="text-align: right;">141</td>
 <td style="text-align: right;">101</td>
-<td style="text-align: right;">-40</td>
+<td style="text-align: right;">40</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_12</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">-19</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_13</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">-2</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_14</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: right;">122</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_15</td>
 <td style="text-align: right;">137</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-31</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_16</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_17</td>
 <td style="text-align: right;">120</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">-4</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_18</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_19</td>
 <td style="text-align: right;">139</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_20</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
@@ -1176,7 +998,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </td>
 </tr>
 </tbody>
-
 </table>
 </div>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(BloodPressure[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1203,140 +1024,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Subject_1</td>
 <td style="text-align: right;">130</td>
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">-16</td>
+<td style="text-align: right;">16</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_2</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">98</td>
-<td style="text-align: right;">-30</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_3</td>
 <td style="text-align: right;">116</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-3</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_4</td>
 <td style="text-align: right;">124</td>
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_5</td>
 <td style="text-align: right;">133</td>
 <td style="text-align: right;">107</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_6</td>
 <td style="text-align: right;">134</td>
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_7</td>
 <td style="text-align: right;">118</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-5</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_8</td>
 <td style="text-align: right;">126</td>
 <td style="text-align: right;">111</td>
-<td style="text-align: right;">-15</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_9</td>
 <td style="text-align: right;">114</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">-5</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_10</td>
 <td style="text-align: right;">127</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-10</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_11</td>
 <td style="text-align: right;">141</td>
 <td style="text-align: right;">101</td>
-<td style="text-align: right;">-40</td>
+<td style="text-align: right;">40</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_12</td>
 <td style="text-align: right;">138</td>
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">-19</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_13</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">-2</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_14</td>
 <td style="text-align: right;">140</td>
 <td style="text-align: right;">122</td>
-<td style="text-align: right;">-18</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_15</td>
 <td style="text-align: right;">137</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-31</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_16</td>
 <td style="text-align: right;">131</td>
 <td style="text-align: right;">106</td>
-<td style="text-align: right;">-25</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_17</td>
 <td style="text-align: right;">120</td>
 <td style="text-align: right;">124</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">-4</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_18</td>
 <td style="text-align: right;">128</td>
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">-26</td>
+<td style="text-align: right;">26</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Subject_19</td>
 <td style="text-align: right;">139</td>
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Subject_20</td>
 <td style="text-align: right;">135</td>
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">-22</td>
+<td style="text-align: right;">22</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
@@ -1445,7 +1266,7 @@ $TreatmentAfterBP
 [1] 112.35
 
 $TreatmentDiffBP
-[1] -17
+[1] 17
 
 $PlaceboPreBP
 [1] 131.9
@@ -1454,7 +1275,95 @@ $PlaceboAfterBP
 [1] 128.9
 
 $PlaceboDiffBP
-[1] -3</code></pre>
+[1] 3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure, var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$TreatmentPreBP
+[1] 64.55526
+
+$TreatmentAfterBP
+[1] 74.76579
+
+$TreatmentDiffBP
+[1] 153.6842
+
+$PlaceboPreBP
+[1] 149.8778
+
+$PlaceboAfterBP
+[1] 124.9889
+
+$PlaceboDiffBP
+[1] 341.3333</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$TreatmentPreBP
+[1] 8.034629
+
+$TreatmentAfterBP
+[1] 8.646721
+
+$TreatmentDiffBP
+[1] 12.39694
+
+$PlaceboPreBP
+[1] 12.24246
+
+$PlaceboAfterBP
+[1] 11.17984
+
+$PlaceboDiffBP
+[1] 18.47521</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure, min)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$TreatmentPreBP
+[1] 114
+
+$TreatmentAfterBP
+[1] 98
+
+$TreatmentDiffBP
+[1] -5
+
+$PlaceboPreBP
+[1] 114
+
+$PlaceboAfterBP
+[1] 105
+
+$PlaceboDiffBP
+[1] -21</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BPStat</span>(BloodPressure, max)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$TreatmentPreBP
+[1] 141
+
+$TreatmentAfterBP
+[1] 130
+
+$TreatmentDiffBP
+[1] 40
+
+$PlaceboPreBP
+[1] 152
+
+$PlaceboAfterBP
+[1] 143
+
+$PlaceboDiffBP
+[1] 33</code></pre>
 </div>
 </div>
 
@@ -1545,10 +1454,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1558,8 +1484,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1571,7 +1506,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1615,6 +1673,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1640,6 +1699,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1700,6 +1785,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
