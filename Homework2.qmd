@@ -29,7 +29,7 @@ TreatmentSubject
 ## 3. Calculate change in blood pressure between treatements.
 
 ```{r}
-TreatmentDiffBP <- (TreatmentAfterBP-TreatmentPreBP) 
+TreatmentDiffBP <- (TreatmentPreBP - TreatmentAfterBP) 
 
 TreatmentDiffBP
 ```
@@ -49,13 +49,13 @@ TreatmentSubject[which(TreatmentAfterBP < TreatmentPreBP)]
 ## 6. Subset the vector of differences to only return those that have a positive change
 
 ```{r}
-TreatmentDiffBP [which(TreatmentAfterBP < TreatmentPreBP)]
+TreatmentDiffBP[TreatmentDiffBP > 0]
 ```
 
 ## 7. Calculate the average decrease in blood pressure.
 
 ```{r}
-mean(TreatmentDiffBP[which(TreatmentAfterBP < TreatmentPreBP)])
+mean(TreatmentDiffBP[TreatmentDiffBP > 0])
 ```
 
 # Task 2
@@ -97,7 +97,7 @@ PlaceboDF <- data.frame(PlaceboSubject =
   PlaceboSubject <- paste("Subject", 1:10, sep = "_"), 
   PlaceboBeforeBP = PlaceboBeforeBP <- c(138, 135, 147, 117, 152, 134, 114, 121, 131, 130), 
   PlaceboAfterBP = PlaceboAfterBP <- c(105, 136, 123, 130, 134, 143, 135, 139, 120, 124), 
-  PlaceboDiffBP = PlaceboDiffBP <- (PlaceboAfterBP - PlaceboBeforeBP) 
+  PlaceboDiffBP = PlaceboDiffBP <- (PlaceboBeforeBP - PlaceboAfterBP) 
 )
 PlaceboDF <- PlaceboDF |> dplyr::mutate(PlaceboBPUnder120 = PlaceboAfterBP < 120)
 
@@ -116,8 +116,8 @@ knitr::kable(BloodPressure)
 ## 3. Access the first list element using three different types of syntax
 
 ```{r}
+knitr::kable(BloodPressure$TreatmentDF)
 knitr::kable(BloodPressure[1])
-knitr::kable(BloodPressure[1:1])
 knitr::kable(BloodPressure[[1]])
 ```
 
@@ -197,4 +197,20 @@ BPStat <- function(x,y = mean){
  }
 
 BPStat(BloodPressure)
+```
+
+```{r}
+BPStat(BloodPressure, var)
+```
+
+```{r}
+BPStat(BloodPressure, sd)
+```
+
+```{r}
+BPStat(BloodPressure, min)
+```
+
+```{r}
+BPStat(BloodPressure, max)
 ```
